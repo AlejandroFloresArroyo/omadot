@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "ale.omadot",
+  "name": "OmaDot",
+  "version": "0.1.0",
+  "author": "Alejandro de Jesus Flores Arroyo",
+  "description": "Omi, the OmaDot voice assistant, in the bar: shows whether it is listening, thinking or speaking. Right click for its settings.",
+  "kinds": ["bar-widget"],
+  "entryPoints": { "barWidget": "BarWidget.qml" },
+  "barWidget": {
+    "displayName": "OmaDot",
+    "description": "Omi's live state; click to open or close the mic, right click for settings.",
+    "category": "Status",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}

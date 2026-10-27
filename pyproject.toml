@@ -1,0 +1,50 @@
+[project]
+name = "omadot"
+version = "0.1.0"
+description = "Local Spanish voice assistant for Omarchy: faster-whisper, Hermes Agent and Kokoro, with Omi in the bar"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Alejandro de Jesus Flores Arroyo", email = "itt.alejandro.flores@hotmail.com" }]
+keywords = ["omarchy", "hyprland", "voice-assistant", "quickshell", "pipecat", "whisper", "kokoro", "hermes-agent"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: GPU :: NVIDIA CUDA :: 12",
+    "Environment :: Wayland",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: Spanish",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Desktop Environment",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+]
+dependencies = [
+    "httpx>=0.28.1",
+    "nvidia-cublas-cu12>=12.9.2.10",
+    "nvidia-cudnn-cu12==9.*",
+    # `uv tool install` ignores uv.lock: stay on the minor the daemon was tested with (it resolved 1.14 otherwise).
+    "pipecat-ai[local,silero,whisper]>=1.12.0,<1.13",
+    "pyyaml>=6.0.3",
+]
+
+[project.scripts]
+omadot = "omadot:main"
+
+[project.urls]
+Homepage = "https://github.com/AlejandroFloresArroyo/omadot"
+Repository = "https://github.com/AlejandroFloresArroyo/omadot"
+Issues = "https://github.com/AlejandroFloresArroyo/omadot/issues"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
